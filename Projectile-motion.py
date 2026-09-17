@@ -140,6 +140,8 @@ while t <= flight_time:
 plt.figure(figsize=(10, 8))
 plt.subplot(2, 1, 1)
 
+#position
+
 plt.plot(x_values, y_values, label="No Drag")
 plt.plot(x_linear_values, y_linear_values, color="red", label="Linear Drag")
 plt.plot(x_quadratic_values, y_quadratic_values, color="purple", label="Quadratic Drag")
