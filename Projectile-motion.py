@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 #Simulation parameters
 g = 9.8                   #Gravity (m/s^2)
 b = 0.1                   #Quadratic drag coefficient
@@ -11,13 +12,13 @@ flight_time = 10          #Maximum simulation time (s)
 dt = 0.01                 #Time step (s)
 mass = 1                  #Projectile mass (kg)
 
+
 #Initial velocity components
 vx0 = v0 * np.cos(np.radians(angle))
 vy0 = v0 * np.sin(np.radians(angle))
 
 
 #1-Projectile without air resistance
-
 x = 0
 y = 0
 t = 0
@@ -52,7 +53,6 @@ while t <= flight_time:
 
 
 #2-Projectile with linear air resistance
-
 x_linear = 0
 y_linear = 0
 t = 0
@@ -87,10 +87,8 @@ while t <= flight_time:
     t += dt
 
 
-
 #3-Projectile with quadratic air resistance
 #For quadratic drag, I use the Euler method because the equations are coupled and I don't use an analytical solution here.
-
 x_quadratic = 0
 y_quadratic = 0
 vx_quadratic = vx0
@@ -136,12 +134,10 @@ while t <= flight_time:
 #---------------------------------------------------
 
 #Plot
-
 plt.figure(figsize=(10, 8))
 plt.subplot(2, 1, 1)
 
-#position
-
+#Position
 plt.plot(x_values, y_values, label="No Drag")
 plt.plot(x_linear_values, y_linear_values, color="red", label="Linear Drag")
 plt.plot(x_quadratic_values, y_quadratic_values, color="purple", label="Quadratic Drag")
@@ -152,9 +148,7 @@ plt.title("Projectile Motion with Air Resistance")
 plt.legend()
 plt.grid()
 
-
 #Kinetic Energy
-
 plt.subplot(2, 1, 2)
 
 plt.plot(time_values, kinetic_energy_values, label="No Drag")
