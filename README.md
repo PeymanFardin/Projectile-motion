@@ -1,5 +1,4 @@
 # Projectile Motion with Air Resistance
-
 ## Overview
 This project simulates projectile motion under three different conditions:
 1. No air resistance
