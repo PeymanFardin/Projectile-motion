@@ -117,6 +117,8 @@ while t <= flight_time:
     vx_quadratic += ax * dt
     vy_quadratic += ay * dt
 
+    t += dt
+
     if y_quadratic < 0: #Stop the simulation when the projectile reaches the ground.
         break
 
@@ -127,8 +129,6 @@ while t <= flight_time:
     y_quadratic_values.append(y_quadratic)
     kinetic_energy_quadratic_values.append(kinetic_energy)
     time_quadratic_values.append(t)
-
-    t += dt
 
 
 #---------------------------------------------------
