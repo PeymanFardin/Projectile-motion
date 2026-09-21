@@ -9,13 +9,21 @@ k = 0.1                   #Linear drag coefficient
 angle = 45                #Launch angle (degrees)
 v0 = 20                   #Initial velocity (m/s)
 flight_time = 10          #Maximum simulation time (s)
-dt = 0.01                 #Time step (s)
+dt = 0.001                 #Time step (s)
 mass = 1                  #Projectile mass (kg)
 
 
 #Initial velocity components
 vx0 = v0 * np.cos(np.radians(angle))
 vy0 = v0 * np.sin(np.radians(angle))
+
+
+#Remove errors
+if abs(vx0) < 1e-12:
+    vx0 = 0.0
+
+if abs(vy0) < 1e-12:
+    vy0 = 0.0
 
 
 #1-Projectile without air resistance
@@ -31,24 +39,25 @@ kinetic_energy_values = [0.5 * mass * v0**2]
 while t <= flight_time:
 
     #Analytical position
-    x = v0 * t * np.cos(np.radians(angle))
-    y = -0.5 * g * t**2 + v0 * t * np.sin(np.radians(angle))
+    x = vx0 * t
+    y = -0.5 * g * t**2 + vy0 * t
 
     #Velocity
     vx = vx0
     vy = vy0 - g * t
 
-    #Kinetic energy
-    kinetic_energy = 0.5 * mass * (vx**2 + vy**2)
-
     if y < 0: #Stop the simulation when the projectile reaches the ground.
         break
+
+    #Kinetic energy
+    kinetic_energy = 0.5 * mass * (vx**2 + vy**2)
 
     x_values.append(x)
     y_values.append(y)
     kinetic_energy_values.append(kinetic_energy)
     time_values.append(t)
 
+    #Advance time
     t += dt
 
 
@@ -73,17 +82,18 @@ while t <= flight_time:
     vx_linear = vx0 * np.exp(-k * t)
     vy_linear = ((vy0 + g / k) * np.exp(-k * t) - g / k)
 
-    #Kinetic energy
-    kinetic_energy = (0.5 * mass * (vx_linear**2 + vy_linear**2))
-
     if y_linear < 0: #Stop the simulation when the projectile reaches the ground.
         break
+
+    #Kinetic energy
+    kinetic_energy = 0.5 * mass * (vx_linear**2 + vy_linear**2)
 
     x_linear_values.append(x_linear)
     y_linear_values.append(y_linear)
     kinetic_energy_linear_values.append(kinetic_energy)
     time_linear_values.append(t)
 
+    #Advance time
     t += dt
 
 
@@ -117,6 +127,7 @@ while t <= flight_time:
     vx_quadratic += ax * dt
     vy_quadratic += ay * dt
 
+    #Advance time
     t += dt
 
     if y_quadratic < 0: #Stop the simulation when the projectile reaches the ground.
