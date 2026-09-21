@@ -9,7 +9,7 @@ k = 0.1                   #Linear drag coefficient
 angle = 45                #Launch angle (degrees)
 v0 = 20                   #Initial velocity (m/s)
 flight_time = 10          #Maximum simulation time (s)
-dt = 0.001                 #Time step (s)
+dt = 0.001                #Time step (s)
 mass = 1                  #Projectile mass (kg)
 
 
