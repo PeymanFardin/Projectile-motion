@@ -98,7 +98,7 @@ while t <= flight_time:
 
 
 #3-Projectile with quadratic air resistance
-#For quadratic drag, I use the Euler method because the equations are coupled and I don't use an analytical solution here.
+#For quadratic drag, I use the Euler method.
 x_quadratic = 0
 y_quadratic = 0
 vx_quadratic = vx0
