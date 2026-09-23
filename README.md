@@ -17,7 +17,7 @@ Linear drag coefficient: $k = 0.1$
 
 Quadratic drag coefficient: $b = 0.1$
 
-The time step is $\Delta t = 0.01 \space (s)$
+The time step is $\Delta t = 0.001 \space (s)$
 
 ## Methods
 
