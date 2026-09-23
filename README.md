@@ -9,7 +9,7 @@ The trajectory and kinetic energy of the projectile are calculated and compared 
 The project is written in Python using NumPy and Matplotlib.
 
 ## Physical Parameters
-The projectile is launched with an initial velocity of $v_0 = 20 \space (m/s)$ at an angle of $\theta = 45^\circ$. The projectile mass is $m = 1 \space (kg)$, and the gravitational acceleration is $g = 9.8 \space (m/s)^2$.
+The projectile is launched with an initial velocity of $v_0 = 20 \space (m/s)$ at an angle of $\theta = 45^\circ$. The projectile mass is $m = 1 \space (kg)$, and the gravitational acceleration is $g = 9.8 \space (m/s^2)$.
 
 The drag coefficients used in the simulation are:
 
