@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 
 #Simulation parameters
 g = 9.8                   #Gravity (m/s^2)
-b = 0.1                   #Quadratic drag coefficient
-k = 0.1                   #Linear drag coefficient
+b = 0.1                   #Quadratic drag coefficient (kg/m)
+k = 0.1                   #Linear drag coefficient (kg/s)
 angle = 45                #Launch angle (degrees)
 v0 = 20                   #Initial velocity (m/s)
 flight_time = 10          #Maximum simulation time (s)
